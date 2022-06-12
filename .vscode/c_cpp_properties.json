@@ -1,0 +1,83 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerPath": "/usr/bin/g++",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+				"${workspaceFolder}/src",
+                "/usr/local/include/",
+                "/usr/include/**"
+            ],
+            "defines": [
+                "__linux__",
+                "_DEBUG"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/src/pch2.hpp"
+            ]
+        },
+        {
+            "name": "Mac",
+            "intelliSenseMode": "macos-clang-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "includePath": [
+				"${workspaceFolder}/src",
+                "/usr/local/include/"
+            ],
+            "defines": [
+                "__APPLE__",
+                "_DEBUG"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/src/pch2.hpp"
+            ]
+        },
+        {
+            "name": "Win32",
+            "intelliSenseMode": "windows-msvc-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+				"${workspaceFolder}/src"
+            ],
+            "defines": [
+                "_WIN32",
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/src/pch2.hpp"
+            ]
+        },
+        {
+            "name": "Win32 (MinGW)",
+            "intelliSenseMode": "windows-gcc-x64",
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+				"${workspaceFolder}/src"
+            ],
+            "defines": [
+                "_WIN32",
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/src/pch2.hpp"
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build: Debug",
+			"type": "process",
+			"command": "chalet",
+			"args": [
+				"-c",
+				"Debug",
+				"build"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			]
+		}
+	]
+}

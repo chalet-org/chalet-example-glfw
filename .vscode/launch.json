@@ -1,0 +1,54 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "MSVC",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal",
+			"preLaunchTask": "Build: Debug",
+			"program": "${workspaceFolder}/build/x64-pc-windows-msvc17_Debug/glfw-app.exe",
+			"envFile": "${workspaceFolder}/build/x64-pc-windows-msvc17_Debug/run.env"
+		},
+		{
+			"name": "LLDB",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Debug/glfw-app",
+			"args": [],
+			"stopOnEntry": false,
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Build: Debug",
+			"osx": {
+				"program": "${workspaceFolder}/build/x86_64-apple-darwin_Debug/glfw-app"
+			}
+		},
+		{
+			"name": "GDB",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Debug/glfw-app",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Build: Debug",
+			"externalConsole": false,
+			"internalConsoleOptions": "neverOpen",
+			"windows": {
+				"MIMode": "gdb",
+				"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+				"program": "${workspaceFolder}/build/x86_64-w64-mingw32_Debug/glfw-app.exe",
+				"envFile": "${workspaceFolder}/build/x86_64-w64-mingw32_Debug/run.env"
+			},
+			"linux": {
+				"MIMode": "gdb",
+				"miDebuggerPath": "/usr/bin/gdb",
+				"program": "${workspaceRoot}/build/x86_64-pc-linux-gnu_Debug/glfw-app",
+				"envFile": "${workspaceFolder}/build/x86_64-pc-linux-gnu_Debug/run.env"
+			}
+		}
+	]
+}
