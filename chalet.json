@@ -15,14 +15,18 @@
 		"glm": {
 			"kind": "cmakeProject",
 			"location": "${externalDir}/glm",
-			"targets": "glm/all"
+			"targets": "glm/all",
+			"defines": [
+				"BUILD_STATIC_LIBS=ON",
+				"BUILD_SHARED_LIBS=ON"
+			],
+			"recheck": false
 		},
 		"glfw": {
 			"kind": "cmakeProject",
 			"location": "${externalDir}/glfw",
-			"targets": [
-				"glfw"
-			]
+			"targets": "glfw",
+			"recheck": false
 		},
 		"glfw-app": {
 			"kind": "executable",
@@ -32,7 +36,14 @@
 				"warningsPreset": "pedantic",
 				"precompiledHeader": "src/pch.hpp",
 				"includeDirs": [
-					"src"
+					"src",
+					"${externalDir}/glm"
+				],
+				"libDirs": [
+					"${externalBuildDir}/glm/glm"
+				],
+				"staticLinks": [
+					"glm_static"
 				]
 			},
 			"files": "src/**.cpp"
