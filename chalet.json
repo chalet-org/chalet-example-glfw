@@ -1,0 +1,47 @@
+{
+	"name": "chalet-example-glfw",
+	"version": "1.0.0",
+	"externalDependencies": {
+		"glfw": {
+			"repository": "git@github.com:glfw/glfw.git",
+			"tag": "3.3.7"
+		},
+		"glm": {
+			"repository": "git@github.com:g-truc/glm.git",
+			"tag": "0.9.9.8"
+		}
+	},
+	"targets": {
+		"glm": {
+			"kind": "cmakeProject",
+			"location": "${externalDir}/glm",
+			"targets": "glm"
+		},
+		"glfw": {
+			"kind": "cmakeProject",
+			"location": "${externalDir}/glfw",
+			"targets": [
+				"glfw"
+			]
+		},
+		"chalet-example-glfw": {
+			"kind": "executable",
+			"language": "C++",
+			"settings:Cxx": {
+				"cppStandard": "c++20",
+				"warningsPreset": "pedantic",
+				"precompiledHeader": "src/pch.hpp",
+				"includeDirs": [
+					"src"
+				]
+			},
+			"files": "src/**.cpp"
+		}
+	},
+	"distribution": {
+		"all": {
+			"kind": "bundle",
+			"buildTargets": "*"
+		}
+	}
+}
