@@ -15,7 +15,7 @@
 		"glm": {
 			"kind": "cmakeProject",
 			"location": "${externalDir}/glm",
-			"targets": "glm"
+			"targets": "glm/all"
 		},
 		"glfw": {
 			"kind": "cmakeProject",
