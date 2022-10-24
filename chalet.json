@@ -37,6 +37,8 @@
 				"cppStandard": "c++17",
 				"warningsPreset": "pedantic",
 				"precompiledHeader": "src/PCH.hpp",
+				"runtimeTypeInformation": false,
+				"threads": true,
 				"defines[:debug]": [
 					"_DEBUG"
 				],
@@ -56,11 +58,17 @@
 					"glfw3",
 					"glm_static"
 				],
+				"links[:windows]": [
+					"opengl32"
+				],
 				"macosFrameworks": [
 					"Cocoa",
 					"OpenGL",
 					"IOKit"
-				]
+				],
+				"windowsSubSystem[:!debug]": "windows",
+				"windowsApplicationIcon": "platform/windows/app.ico",
+				"windowsApplicationManifest": "platform/windows/app.manifest"
 			},
 			"files": "src/**.cpp"
 		}
@@ -72,6 +80,10 @@
 			"macosBundle": {
 				"type": "app",
 				"infoPropertyList": "platform/macos/Info.plist.json",
+				"icon": "platform/glfw-logo.png"
+			},
+			"linuxDesktopEntry": {
+				"template": "platform/linux/app.desktop",
 				"icon": "platform/glfw-logo.png"
 			}
 		},

@@ -1,5 +1,7 @@
-#include <GLFW/glfw3.h>
+
 #include <glm/glm.hpp>
+
+#include "Platform/Platform.hpp"
 
 int main(const int argc, const char* argv[])
 {
@@ -24,6 +26,8 @@ int main(const int argc, const char* argv[])
         glfwTerminate();
         return -1;
     }
+
+    Platform::initialize(window);
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
