@@ -8,6 +8,7 @@
             "cppStandard": "c++17",
             "includePath": [
 				"${workspaceFolder}/src",
+                "${workspaceFolder}/chalet_external/glfw/include",
                 "${workspaceFolder}/chalet_external/glm",
                 "/usr/local/include/",
                 "/usr/include/**"
@@ -32,6 +33,7 @@
             ],
             "includePath": [
 				"${workspaceFolder}/src",
+                "${workspaceFolder}/chalet_external/glfw/include",
                 "${workspaceFolder}/chalet_external/glm",
                 "/usr/local/include/"
             ],
@@ -50,6 +52,7 @@
             "cppStandard": "c++17",
             "includePath": [
 				"${workspaceFolder}/src",
+                "${workspaceFolder}/chalet_external/glfw/include",
                 "${workspaceFolder}/chalet_external/glm"
             ],
             "defines": [
@@ -70,6 +73,7 @@
             "cppStandard": "c++17",
             "includePath": [
 				"${workspaceFolder}/src",
+                "${workspaceFolder}/chalet_external/glfw/include",
                 "${workspaceFolder}/chalet_external/glm"
             ],
             "defines": [

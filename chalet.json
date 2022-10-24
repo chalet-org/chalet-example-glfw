@@ -4,7 +4,7 @@
 	"externalDependencies": {
 		"glfw": {
 			"repository": "git@github.com:glfw/glfw.git",
-			"tag": "3.3.7"
+			"tag": "3.3.8"
 		},
 		"glm": {
 			"repository": "git@github.com:g-truc/glm.git",
@@ -14,19 +14,21 @@
 	"targets": {
 		"glm": {
 			"kind": "cmakeProject",
-			"location": "${externalDir}/glm",
+			"location": "${external:glm}",
 			"targets": "glm/all",
 			"defines": [
 				"BUILD_STATIC_LIBS=ON",
-				"BUILD_SHARED_LIBS=ON"
+				"BUILD_SHARED_LIBS=OFF"
 			],
-			"recheck": false
+			"recheck": false,
+			"rebuild": false
 		},
 		"glfw": {
 			"kind": "cmakeProject",
-			"location": "${externalDir}/glfw",
+			"location": "${external:glfw}",
 			"targets": "glfw",
-			"recheck": false
+			"recheck": false,
+			"rebuild": false
 		},
 		"glfw-app": {
 			"kind": "executable",
@@ -35,24 +37,67 @@
 				"cppStandard": "c++17",
 				"warningsPreset": "pedantic",
 				"precompiledHeader": "src/PCH.hpp",
+				"defines[:debug]": [
+					"_DEBUG"
+				],
+				"defines[:macos]": [
+					"GL_SILENCE_DEPRECATION"
+				],
 				"includeDirs": [
 					"src",
-					"${externalDir}/glm"
+					"${external:glfw}/include",
+					"${external:glm}"
 				],
 				"libDirs": [
-					"${externalBuildDir}/glm/glm"
+					"${externalBuild:glfw}/src",
+					"${externalBuild:glm}/glm"
 				],
 				"staticLinks": [
+					"glfw3",
 					"glm_static"
+				],
+				"macosFrameworks": [
+					"Cocoa",
+					"OpenGL",
+					"IOKit"
 				]
 			},
 			"files": "src/**.cpp"
 		}
 	},
 	"distribution": {
-		"all": {
+		"GLFWApp": {
 			"kind": "bundle",
-			"buildTargets": "*"
+			"buildTargets": "*",
+			"macosBundle": {
+				"type": "app",
+				"infoPropertyList": "platform/macos/Info.plist.json",
+				"icon": "platform/glfw-logo.png"
+			}
+		},
+		"GLFWApp.dmg": {
+			"kind": "macosDiskImage",
+			"pathbarVisible": false,
+			"textSize": 12,
+			"iconSize": 80,
+			"background": {
+				"1x": "platform/macos/dmg-background.png",
+				"2x": "platform/macos/dmg-background@2x.png"
+			},
+			"size": {
+				"width": 512,
+				"height": 342
+			},
+			"positions": {
+				"GLFWApp": {
+					"x": 120,
+					"y": 188
+				},
+				"Applications": {
+					"x": 392,
+					"y": 188
+				}
+			}
 		}
 	}
 }

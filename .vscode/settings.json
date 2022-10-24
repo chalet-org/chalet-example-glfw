@@ -1,3 +1,6 @@
 {
-	"chalet.useDebugChalet": false
+	"chalet.useDebugChalet": false,
+	"[jsonc]": {
+		"editor.formatOnSave": true
+	}
 }
