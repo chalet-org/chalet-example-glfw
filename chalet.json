@@ -59,6 +59,11 @@
 				"links[:windows]": [
 					"opengl32"
 				],
+				"links[:linux]": [
+					"GL",
+					"glfw3",
+					"X11"
+				],
 				"macosFrameworks": [
 					"Cocoa",
 					"OpenGL",

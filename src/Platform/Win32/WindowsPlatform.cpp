@@ -17,7 +17,7 @@ WindowsPlatform::WindowsPlatform()
 
 /*****************************************************************************/
 // The window handle uses 32x32 (ICON_BIG) & 16x16 (ICON_SMALL) sized icons.
-// This should be called any time the SFML window is create/recreated
+// This should be called any time the window is create/recreated
 //
 void WindowsPlatform::setIcon(GLFWwindow* inWindow)
 {
