@@ -8,7 +8,7 @@ struct WindowsPlatform
 {
 	WindowsPlatform();
 
-	void setIcon(GLFWwindow* inHandle);
+	void initialize(GLFWwindow* inHandle);
 
 private:
 	float getScreenScalingFactor();

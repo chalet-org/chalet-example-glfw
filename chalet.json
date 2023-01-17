@@ -57,7 +57,8 @@
 					"glm_static"
 				],
 				"links[:windows]": [
-					"opengl32"
+					"opengl32",
+					"dwmapi"
 				],
 				"links[:linux]": [
 					"GL",

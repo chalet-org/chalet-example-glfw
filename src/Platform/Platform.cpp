@@ -9,7 +9,7 @@ void Platform::initialize(GLFWwindow* inWindow)
 {
 #if defined(_WIN32)
 	util::WindowsPlatform platform;
-	platform.setIcon(inWindow);
+	platform.initialize(inWindow);
 #else
 	UNUSED(inWindow);
 #endif
