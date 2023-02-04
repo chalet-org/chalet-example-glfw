@@ -3,10 +3,12 @@
 	"version": "1.0.0",
 	"externalDependencies": {
 		"glfw": {
+			"kind": "git",
 			"repository": "git@github.com:glfw/glfw.git",
 			"tag": "3.3.8"
 		},
 		"glm": {
+			"kind": "git",
 			"repository": "git@github.com:g-truc/glm.git",
 			"tag": "0.9.9.8"
 		}
