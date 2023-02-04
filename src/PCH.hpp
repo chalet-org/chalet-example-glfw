@@ -1,5 +1,5 @@
-#ifndef PCH_HPP
-#define PCH_HPP
+#ifndef PRECOMPILED_HEADER_HPP
+#define PRECOMPILED_HEADER_HPP
 
 #ifndef _DEBUG
 	#ifndef NDEBUG
@@ -39,4 +39,4 @@
 // Macros
 #define UNUSED(x) static_cast<void>(x)
 
-#endif // PCH_HPP
+#endif // PRECOMPILED_HEADER_HPP
