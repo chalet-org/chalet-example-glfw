@@ -67,7 +67,7 @@
 					"glfw3",
 					"X11"
 				],
-				"macosFrameworks": [
+				"appleFrameworks": [
 					"Cocoa",
 					"OpenGL",
 					"IOKit"
