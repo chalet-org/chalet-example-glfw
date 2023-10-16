@@ -9,3 +9,7 @@ dist
 chalet_external/
 .env*
 
+# Editors
+.idea
+.vs
+.vscode
