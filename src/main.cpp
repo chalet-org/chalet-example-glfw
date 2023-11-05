@@ -3,18 +3,13 @@
 
 #include "Platform/Platform.hpp"
 
-int main(const int argc, const char* argv[])
+namespace app
 {
-	std::cout << "Hello world!\n\n";
-	std::cout << "Args:\n";
+GLFWwindow* window = nullptr;
+bool running = true;
 
-	for (int i = 0; i < argc; ++i)
-	{
-		std::cout << "  " << argv[i] << '\n';
-	}
-
-	GLFWwindow* window = nullptr;
-
+int initialize()
+{
     // Initialize the library
     if (!glfwInit())
         return -1;
@@ -34,21 +29,60 @@ int main(const int argc, const char* argv[])
 
 	// Set the background color (Cornflower Blue - 100,149,237)
 	glClearColor(100.0f / 255.0f, 149.0f / 255.0f, 237.0f / 255.0f, 1.0f);
+    return 0;
+}
 
-    // Loop until the user closes the window
-    while (!glfwWindowShouldClose(window))
+void dispose()
+{
+    glfwTerminate();
+}
+
+bool isRunning()
+{
+    return !glfwWindowShouldClose(window);
+}
+
+void mainLoop()
+{
+	if (!isRunning())
     {
-        // Render here
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // Swap front and back buffers
-        glfwSwapBuffers(window);
-
-        // Poll for and process events
-        glfwPollEvents();
+        dispose();
+#if defined(APP_EMSCRIPTEN)
+        emscripten_cancel_main_loop();
+#else
+        ::exit(0);
+#endif
     }
 
-    glfwTerminate();
-    return 0;
+    // Render here
+    glClear(GL_COLOR_BUFFER_BIT);
 
+    // Swap front and back buffers
+    glfwSwapBuffers(window);
+
+    // Poll for and process events
+    glfwPollEvents();
+}
+}
+
+int main(const int argc, const char* argv[])
+{
+	std::cout << "Hello world!\n\n";
+	std::cout << "Args:\n";
+
+	for (int i = 0; i < argc; ++i)
+	{
+		std::cout << "  " << argv[i] << '\n';
+	}
+
+    if (app::initialize() > 0)
+        return 1;
+
+#if defined(APP_EMSCRIPTEN)
+    emscripten_set_main_loop(app::mainLoop, 0, 1);
+#else
+    while (1) {
+		app::mainLoop();
+	}
+#endif
 }

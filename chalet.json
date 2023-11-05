@@ -28,7 +28,10 @@
 			"kind": "cmakeProject",
 			"location": "${external:glfw}",
 			"targets": "glfw",
-			"recheck": false
+			"recheck": false,
+			"defines[:web]": [
+				"GLFW_USE_OSMESA=ON"
+			]
 		},
 		"glfw-app": {
 			"kind": "executable",
@@ -57,6 +60,10 @@
 				"staticLinks": [
 					"glfw3",
 					"glm_static"
+				],
+				"linkerOptions[:web]": [
+					"-sGL_PREINITIALIZED_CONTEXT",
+					"-sFULL_ES3"
 				],
 				"links[:windows]": [
 					"opengl32",
