@@ -75,7 +75,7 @@ int main(const int argc, const char* argv[])
 		std::cout << "  " << argv[i] << '\n';
 	}
 
-    if (app::initialize() > 0)
+    if (app::initialize() < 0)
         return 1;
 
 #if defined(APP_EMSCRIPTEN)
