@@ -35,7 +35,6 @@
 #include <string>
 #include <vector>
 
-
 // Macros
 #define UNUSED(x) static_cast<void>(x)
 

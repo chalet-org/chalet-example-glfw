@@ -22,8 +22,9 @@
 		},
 		"glfw.static": {
 			"settings:Cxx": {
-				"includeDirs": "${external:glfw}/include",
-				"staticLinks": "${externalBuild:glfw}/src/${ar:glfw3}",
+				"includeDirs[toolchain:!emscripten]": "${external:glfw}/include",
+				"staticLinks[toolchain:!emscripten]": "${externalBuild:glfw}/src/${ar:glfw3}",
+				"staticLinks[toolchain:emscripten]": "glfw3",
 				"links[:windows]": [
 					"opengl32"
 				],
@@ -31,6 +32,7 @@
 					"GL",
 					"X11"
 				],
+				"linkerOptions[toolchain:emscripten]": "-sUSE_GLFW=3",
 				"appleFrameworks": [
 					"Cocoa",
 					"OpenGL",
@@ -53,6 +55,7 @@
 		},
 		"glfw": {
 			"kind": "cmakeProject",
+			"condition": "[toolchain:!emscripten]",
 			"location": "${external:glfw}",
 			"targets": "glfw",
 			"defines[:web]": [
