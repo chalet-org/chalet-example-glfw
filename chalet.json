@@ -10,14 +10,13 @@
 		"glm": {
 			"kind": "git",
 			"repository": "git@github.com:g-truc/glm.git",
-			"tag": "0.9.9.8"
+			"tag": "1.0.0"
 		}
 	},
 	"package": {
-		"glm.static": {
+		"glm": {
 			"settings:Cxx": {
-				"includeDirs": "${external:glm}",
-				"staticLinks": "${externalBuild:glm}/glm/${ar:glm_static}"
+				"includeDirs": "${external:glm}"
 			}
 		},
 		"glfw.static": {
@@ -42,17 +41,6 @@
 		}
 	},
 	"targets": {
-		"glm": {
-			"kind": "cmakeProject",
-			"location": "${external:glm}",
-			"targets": "glm/all",
-			"defines": [
-				"BUILD_STATIC_LIBS=ON",
-				"BUILD_SHARED_LIBS=OFF"
-			],
-			"recheck": false,
-			"rebuild": false
-		},
 		"glfw": {
 			"kind": "cmakeProject",
 			"condition": "[toolchain:!emscripten]",
@@ -96,7 +84,7 @@
 			"files": "src/**.cpp",
 			"importPackages": [
 				"glfw.static",
-				"glm.static"
+				"glm"
 			]
 		}
 	},
