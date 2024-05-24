@@ -46,6 +46,10 @@
 			"condition": "[toolchain:!emscripten]",
 			"location": "${external:glfw}",
 			"targets": "glfw",
+			"defines[:linux]": [
+				"GLFW_BUILD_WAYLAND=OFF",
+				"GLFW_BUILD_X11=ON"
+			],
 			"defines[:web]": [
 				"GLFW_USE_OSMESA=ON"
 			],
