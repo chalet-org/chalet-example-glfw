@@ -46,15 +46,19 @@
 			"condition": "[toolchain:!emscripten]",
 			"location": "${external:glfw}",
 			"targets": "glfw",
+			"recheck": false,
+			"rebuild": false,
+			"install": true,
+			"defines": [
+				"GLFW_BUILD_DOCS=OFF"
+			],
 			"defines[:linux]": [
 				"GLFW_BUILD_WAYLAND=OFF",
 				"GLFW_BUILD_X11=ON"
 			],
 			"defines[:web]": [
 				"GLFW_USE_OSMESA=ON"
-			],
-			"recheck": false,
-			"rebuild": false
+			]
 		},
 		"glfw-app": {
 			"kind": "executable",
