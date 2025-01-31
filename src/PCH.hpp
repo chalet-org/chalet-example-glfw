@@ -7,10 +7,7 @@
 	#endif
 #endif // _DEBUG
 
-#include <GLFW/glfw3.h>
-#if defined(APIENTRY)
-	#undef APIENTRY
-#endif
+#include "Libraries/GLFW.hpp"
 
 #include <algorithm>
 #include <cstdio>
