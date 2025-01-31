@@ -8,6 +8,9 @@
 #endif // _DEBUG
 
 #include <GLFW/glfw3.h>
+#if defined(APIENTRY)
+	#undef APIENTRY
+#endif
 
 #include <algorithm>
 #include <cstdio>
@@ -20,6 +23,7 @@
 #include <set>
 #include <string>
 #include <vector>
+
 
 // Macros
 #define UNUSED(x) static_cast<void>(x)
